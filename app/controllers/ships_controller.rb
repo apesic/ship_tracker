@@ -8,8 +8,19 @@ class ShipsController < ApplicationController
 #            PATCH  /ships(.:format)      ships#update
 #            PUT    /ships(.:format)      ships#update
 #            DELETE /ships(.:format)      ships#destroy
+  include ShipsSearch
+
   def index
     @ships = Ship.all
+  end
+
+  def search
+    if params[:imonumber]
+      result = basic_search(params[:imonumber])
+    elsif params[:name]
+      result = name_search(params[:name])
+    end
+    render json: result
   end
 
   def show
