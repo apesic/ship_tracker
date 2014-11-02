@@ -7,23 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 ships = [
-  {"destination"=>nil,
-    "etatime"=>nil,
-    "flag"=>"CN|China",
-    "heading"=>"150.0",
-    "imonumber"=>12,
-    "last_ports"=>[],
-    "latitude"=>"30.208312",
-    "location"=>"Huangshi, CN",
-    "longitude"=>"115.150177",
-    "mmsinumber"=>413819484,
-    "name"=>"GUANG TONG 6218",
-    "navigationstatus"=>"None",
-    "photos"=>nil,
-    "positionreceived"=>"2014-11-01T20:09+0000",
-    "publicurl"=>"http://www.fleetmon.com/en/vessels/Guang_Tong_6218_8730154",
-    "type"=>"Cargo ship"},
-
     {"destination"=>"YIU DOCKYARD",
     "etatime"=>"2014-10-25T23:30+0000",
     "flag"=>"DE|Germany",
