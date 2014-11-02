@@ -15,6 +15,8 @@ class CreateShips < ActiveRecord::Migration
       t.string :location
       t.string :navigationstatus
       t.string :photos
+      t.string :last_ports
+      t.string :positionreceived
       t.timestamps
     end
   end

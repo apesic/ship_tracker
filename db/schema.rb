@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 20141101192958) do
     t.string   "location"
     t.string   "navigationstatus"
     t.string   "photos"
+    t.string   "last_ports"
+    t.string   "positionreceived"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

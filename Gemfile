@@ -30,8 +30,9 @@ gem 'pry-rails', group: :development
 gem 'twitter-typeahead-rails'
 gem 'bootstrap-sass', '~> 3.3.0'
 gem 'autoprefixer-rails'
-gem 'gmaps4rails'
+# gem 'gmaps4rails'
 gem 'lodash-rails'
+gem 'httparty'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

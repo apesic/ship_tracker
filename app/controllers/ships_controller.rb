@@ -9,6 +9,7 @@ class ShipsController < ApplicationController
 #            PUT    /ships(.:format)      ships#update
 #            DELETE /ships(.:format)      ships#destroy
   def index
+    @ships = Ship.all
   end
 
   def show
