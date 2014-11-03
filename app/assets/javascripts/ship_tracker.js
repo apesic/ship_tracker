@@ -99,16 +99,20 @@ var shipTracker = (function() {
   };
 
   var imoSearch = function(imonumber) {
-    $.getJSON('/ships/search/?imonumber=' + imonumber, function(response){
-      console.log(response);
-      if (!response) {
+    $.getJSON('/ships/search/?imonumber=' + imonumber)
+    .done(function(ship){
+      console.log(ship);
+      if (!ship) {
         toastr.error("No ships found", "Error");
       } else {
-        var ship = response[0];
         ships.push(ship);
         _initShip(ship);
         _activeShip(ship);
       }
+    })
+    .fail(function(response){
+      console.log(response);
+      toastr.error("No ships found", "Error");
     });
   };
 

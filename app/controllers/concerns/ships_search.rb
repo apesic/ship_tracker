@@ -22,4 +22,7 @@ module ShipsSearch
     nil
   end
 
+  def strip_bad_keys(ship)
+    Ship.create(ship.delete_if { |key, value| key.to_s == "last_ports" || key.to_s == "lastport" })
+  end
 end

@@ -16,7 +16,10 @@ class ShipsController < ApplicationController
 
   def search
     if params[:imonumber]
-      result = full_search(params[:imonumber])
+      response = full_search(params[:imonumber])
+      return render_notfound unless response
+      ship = strip_bad_keys(response.first)
+      result = Ship.find_or_create_by(imonumber: ship[:imonumber])
     elsif params[:name]
       result = name_search(params[:name])
     end
