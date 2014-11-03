@@ -117,6 +117,7 @@ var shipTracker = (function() {
         ships.push(ship);
         _initShip(ship);
         _activeShip(ship);
+        $('#search-input').val('');
       }
     })
     .fail(function(response){
