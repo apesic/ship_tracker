@@ -16,7 +16,7 @@ class ShipsController < ApplicationController
 
   def search
     if params[:imonumber]
-      result = basic_search(params[:imonumber])
+      result = full_search(params[:imonumber])
     elsif params[:name]
       result = name_search(params[:name])
     end

@@ -1,12 +1,16 @@
 <div id="map-canvas"></div>
 <div class="sidebar">
   <h3>Ships</h3>
-  <div class="input-group">
-    <input type="text" name="imonumber" class="form-control" placeholder="IMO Number" id="search">
-    <span class="input-group-btn">
-      <button class="btn btn-primary" type="submit">Search</button>
-    </span>
-  </div>
+
+  <form action="/ships/search" class="form-inline" id="search">
+    <div class="input-group">
+      <input type="text" name="imonumber" class="form-control" placeholder="IMO Number" id="search-input" required>
+      <span class="input-group-btn">
+        <button class="btn btn-primary" type="submit">Search</button>
+      </span>
+    </div>
+  </form>
+
   <div class="list-group ships">
 
   </div>

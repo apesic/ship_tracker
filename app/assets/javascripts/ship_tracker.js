@@ -78,28 +78,46 @@ var shipTracker = (function() {
     _renderMarker(ship);
   };
 
+  var _initShip = function(ship) {
+    if (ship.photos) {
+      ship.phototag = '<img src="' + ship.photos + '" class="ship-thumb" />';
+    } else {
+      ship.phototag = '';
+    }
+    _renderShip(ship);
+  };
+
   var initialize = function(shipsJson) {
     _loadTemplates();
     ships = shipsJson;
-    ships.forEach(function(ship) {
-      if (ship.photos) {
-        ship.phototag = '<img src="' + ship.photos + '" class="ship-thumb" />';
-      } else {
-        ship.phototag = '';
-      }
-      _renderShip(ship);
+    ships.forEach(_initShip);
+    $('#search').on('submit', function(e) {
+      e.preventDefault();
+      var query = $('#search-input').val();
+      imoSearch(query);
     });
   };
 
   var imoSearch = function(imonumber) {
     $.getJSON('/ships/search/?imonumber=' + imonumber, function(response){
       console.log(response);
+      if (!response) {
+        toastr.error("No ships found", "Error");
+      } else {
+        var ship = response[0];
+        ships.push(ship);
+        _initShip(ship);
+        _activeShip(ship);
+      }
     });
   };
 
   var nameSearch = function(name) {
     $.getJSON('/ships/search/?name=' + name, function(response){
       console.log(response);
+      if (!response) {
+        toastr.error("No ships found", "Error");
+      }
     });
   };
 
@@ -112,4 +130,18 @@ var shipTracker = (function() {
 
 window.onload = function(){
   shipTracker.initialize(shipsJson);
+  toastr.options = {
+    "closeButton": false,
+    "debug": false,
+    "positionClass": "toast-top-left",
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+  };
 };
