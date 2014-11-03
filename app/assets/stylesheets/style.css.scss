@@ -39,6 +39,15 @@ body { height: 100%; margin: 0; padding: 0; overflow: hidden; }
   }
 }
 
+#search {
+  .input-group {
+    width: 100%;
+  }
+  button {
+    width: 100%;
+  }
+}
+
 .list-group.ships {
   margin: 0;
   overflow: scroll;
