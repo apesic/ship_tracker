@@ -1,28 +1,23 @@
-== README
+Ship Tracker
+============
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+https://shiptracker.herokuapp.com
 
-Things you may want to cover:
+This is a simpile web app made to demonstrate realtime maritime ship tracking using the Fleetmon API (http://www.fleetmon.com/my/api/info). 
 
-* Ruby version
+Ships currently in the tracking list will be plotted on the map, and new ships can be added by searching by their IMO Number. Search by ship name and MMSI number are in the works.
 
-* System dependencies
+Built with a Rails backend, using PostgreSQL for database.
 
-* Configuration
+To setup locally, clone the repo, `bundle` to install gems, and add your Fleetmon API key to your env:
 
-* Database creation
+```
+export FLEETMON_API_KEY="your_api_key_here"
+```
 
-* Database initialization
+You can then follow the usual Rails procedure:
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+```
+rake db:setup
+rails s
+```
