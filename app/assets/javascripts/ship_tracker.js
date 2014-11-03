@@ -9,6 +9,15 @@ String.prototype.titleize = function() {
   return array.join(' ');
 };
 
+var etaInWords = function(etaString) {
+  var daysDiff = (new Date(etaString) - Date.now())/(1000*60*60*24);
+  if (daysDiff < 1) {
+    return Math.ceil(daysDiff * 24) + " hours";
+  } else {
+    return Math.ceil(daysDiff) + " days";
+  }
+};
+
 var shipTracker = (function() {
   var ships = [],
       infoTemplate,
